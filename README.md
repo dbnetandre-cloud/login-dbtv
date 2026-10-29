@@ -32,6 +32,10 @@ Header opcional `X-Token` (configurado em `config.js`) para você validar no n8n
 { "resultados": [ { "id": 123, "nome": "Fulano", "login": "fulano", "senha": "abc123" } ] }
 ```
 
+**Busca por nome:** o app espera a lista de clientes (formato `[{ "resultado": [ { cliente_id, ativo, nome, cpf, enderecos: [...] } ] }]`),
+mostra os clientes para o técnico escolher e, ao tocar em um, faz uma nova requisição `{ "tipo": "id", "valor": "<cliente_id>" }`,
+que deve devolver o login e a senha no formato acima.
+
 **CORS:** no Webhook node, em Options → Allowed Origins (CORS), coloque o domínio onde o app for hospedado
 (ou `*` só para testes).
 

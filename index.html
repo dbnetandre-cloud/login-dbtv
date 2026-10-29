@@ -3,29 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#0b1220">
   <title>Login DBTV</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topo">
     <button id="voltar" class="voltar" aria-label="Voltar" hidden>&#8592;</button>
-    <h1>Login DBTV</h1>
+    <h1><span class="logo">TV</span>Login DBTV</h1>
     <span id="passo" class="passo"></span>
+    <div class="barra"><i id="barra"></i></div>
   </header>
 
   <main>
     <!-- Passo 1: tipo de pesquisa -->
     <section id="tela-tipo" class="tela">
       <h2>Como deseja pesquisar?</h2>
+      <p class="sub">Escolha uma opção para localizar o cliente.</p>
       <button class="opcao" data-tipo="nome">
-        <strong>Nome do cliente</strong><span>Busca pelo nome completo ou parte dele</span>
+        <span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span>
+        <span class="txt"><strong>Nome do cliente</strong><small>Busca pelo nome completo ou parte dele</small></span>
+        <svg class="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
       </button>
       <button class="opcao" data-tipo="id">
-        <strong>ID do cliente</strong><span>Número de identificação</span>
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M5 9h14M5 15h14M10 3 8 21M16 3l-2 18"/></svg></span>
+        <span class="txt"><strong>ID do cliente</strong><small>Número de identificação</small></span>
+        <svg class="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
       </button>
       <button class="opcao" data-tipo="login">
-        <strong>Login</strong><span>Login do cliente</span>
+        <span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3.5 7.1"/></svg></span>
+        <span class="txt"><strong>Login</strong><small>Login do cliente</small></span>
+        <svg class="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
       </button>
     </section>
 
@@ -39,7 +47,14 @@
       </form>
     </section>
 
-    <!-- Passo 3: resultado -->
+    <!-- Só para busca por nome: escolher qual cliente -->
+    <section id="tela-lista" class="tela" hidden>
+      <h2>Selecione o cliente</h2>
+      <p id="qtd" class="meta-lista"></p>
+      <div id="lista"></div>
+    </section>
+
+    <!-- Último passo: resultado -->
     <section id="tela-resultado" class="tela" hidden>
       <h2>Resultado</h2>
       <div id="resultados"></div>
