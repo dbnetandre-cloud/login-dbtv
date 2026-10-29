@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <title>Login DBTV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <button id="voltar" class="voltar" aria-label="Voltar" hidden>&#8592;</button>
+    <h1>Login DBTV</h1>
+    <span id="passo" class="passo"></span>
+  </header>
+
+  <main>
+    <!-- Passo 1: tipo de pesquisa -->
+    <section id="tela-tipo" class="tela">
+      <h2>Como deseja pesquisar?</h2>
+      <button class="opcao" data-tipo="nome">
+        <strong>Nome do cliente</strong><span>Busca pelo nome completo ou parte dele</span>
+      </button>
+      <button class="opcao" data-tipo="id">
+        <strong>ID do cliente</strong><span>Número de identificação</span>
+      </button>
+      <button class="opcao" data-tipo="login">
+        <strong>Login</strong><span>Login do cliente</span>
+      </button>
+    </section>
+
+    <!-- Passo 2: digitar valor -->
+    <section id="tela-busca" class="tela" hidden>
+      <h2 id="titulo-busca"></h2>
+      <form id="form-busca" autocomplete="off">
+        <input id="valor" type="text" required autocapitalize="none" autocorrect="off" spellcheck="false">
+        <p id="erro" class="erro" role="alert" hidden></p>
+        <button id="buscar" type="submit" class="primario">Buscar</button>
+      </form>
+    </section>
+
+    <!-- Passo 3: resultado -->
+    <section id="tela-resultado" class="tela" hidden>
+      <h2>Resultado</h2>
+      <div id="resultados"></div>
+      <button id="nova" class="primario">Nova pesquisa</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
